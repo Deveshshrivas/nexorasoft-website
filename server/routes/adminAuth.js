@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
@@ -119,7 +119,8 @@ router.post('/request-otp', async (req, res) => {
       console.log(`OTP sent to ${email} via ZeptoMail.`);
     } catch (err) {
       console.error('Error sending OTP email via ZeptoMail:', err);
-      return res.status(500).json({ message: 'Error sending email via ZeptoMail' });
+      console.log("WARNING: ZeptoMail failed! Falling back to console OTP:", otp);
+      // return res.status(500).json({ message: 'Error sending email via ZeptoMail' });
     }
   } else {
     console.log(`WARNING: ZEPTO_TOKEN not set. Console fallback OTP is: ${otp}`);
@@ -153,4 +154,5 @@ router.post('/verify-otp', async (req, res) => {
 });
 
 module.exports = router;
+
 
