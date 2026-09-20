@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { getSettings, updateSettings } from '../../api/api';
 import { useSiteSettings } from '../../context/SiteContext';
@@ -200,7 +200,6 @@ const AdminSettings = () => {
                 Add Admin
               </button>
             </div>
-            <p className="text-xs text-orange-500 mt-3 font-medium">Note: Your master admin email in the server configuration (.env) is permanently active and cannot be removed here.</p>
           </div>
         </div>
 
