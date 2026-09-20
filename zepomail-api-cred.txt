@@ -1,0 +1,41 @@
+// https://www.npmjs.com/package/zeptomail
+
+// For ES6
+import { SendMailClient } from "zeptomail";
+
+// For CommonJS
+// var { SendMailClient } = require("zeptomail");
+
+const url = "https://api.zeptomail.in/v1.1/email";
+const token = "Zoho-enczapikey ********";
+
+let client = new SendMailClient({url, token});
+
+client.sendMail({
+    "from": 
+    {
+        "address": "noreply@nexorasoft.io",
+        "name": "noreply"
+    },
+    "to": 
+    [
+        {
+        "email_address": 
+            {
+                "address": "codingmasterg96@gmail.com",
+                "name": "Gourav"
+            }
+        }
+    ],
+    "subject": "Test Email",
+    "htmlbody": "<div><b> Test email sent successfully.</b></div>",
+}).then((resp) => console.log("success")).catch((error) => console.log("error"));
+
+
+
+
+Domain/Sender Address: nexorasoft.io
+Host: api.zeptomail.in
+Agent alias: 4e0f63aa2fd093a8
+Send mail token1: Zoho-enczapikey PHtE6r0MEO3s3zQs+0dT4PbsF8WhPdsr+eIxKVNEtopBC6VSF01Xo9l5xjblrx57APdBEvbKm4pqt+ub4OjQJG+7ZG0eDWqyqK3sx/VYSPOZsbq6x00UsVUSd0zeVYTtc99p1SXSud6X
+Send mail token2: Zoho-enczapikey PHtE6r0KFu64iWUq9UIHtPW+FcfyYY0v+75mLQgW5I1EXvJXHk1Sq41+xGPmq0guVfdKRfeazohutrua4e3Xdj7vPWsaDWqyqK3sx/VYSPOZsbq6x00btlsackzfVI7pdtdp1CfVvtbbNA==

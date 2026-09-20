@@ -1,0 +1,12 @@
+﻿{
+  "name": "nexorasoft-deploy",
+  "version": "1.0.0",
+  "description": "Heroku deployment for Nexora Soft",
+  "scripts": {
+    "start": "node server/server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build && cd ../server && npm install"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
