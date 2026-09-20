@@ -1,4 +1,4 @@
-﻿import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Toaster } from 'react-hot-toast';
 import { SiteProvider } from './context/SiteContext';
@@ -56,7 +56,7 @@ const AnimatedRoutes = () => {
         </Route>
 
         {/* Admin Routes */}
-        <Route path="/admin" element={<PageWrapper><AdminLayout /></PageWrapper>}>
+        <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="projects" element={<AdminProjects />} />
           <Route path="services" element={<AdminServices />} />
