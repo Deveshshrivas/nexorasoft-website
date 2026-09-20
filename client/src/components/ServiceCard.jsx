@@ -30,8 +30,14 @@ const ServiceCard = ({ service, index = 0 }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45, delay: index * 0.07 }}
-      className="card-service group"
+      className="card-service group relative overflow-hidden"
     >
+      {service.image && (
+        <div style={{ margin: '-1.75rem -1.75rem 1.5rem -1.75rem' }} className="h-48 overflow-hidden">
+          <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+      )}
+
       {/* Top row: icon + category */}
       <div className="flex items-start justify-between mb-5">
         <div

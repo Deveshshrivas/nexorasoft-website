@@ -12,7 +12,7 @@ const AdminServices = () => {
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState({
     title: '', slug: '', shortDescription: '', fullDescription: '',
-    icon: 'FaCode', priceRange: '', deliveryTime: '', category: 'Development'
+    icon: 'FaCode', priceRange: '', deliveryTime: '', category: 'Development', image: ''
   });
 
   const fetchServices = () => {
@@ -34,13 +34,13 @@ const AdminServices = () => {
         title: service.title, slug: service.slug, shortDescription: service.shortDescription,
         fullDescription: service.fullDescription, icon: service.icon,
         priceRange: service.priceRange || '', deliveryTime: service.deliveryTime || '',
-        category: service.category
+        category: service.category, image: service.image || ''
       });
     } else {
       setEditingId(null);
       setFormData({ 
         title: '', slug: '', shortDescription: '', fullDescription: '',
-        icon: 'FaCode', priceRange: '', deliveryTime: '', category: 'Development' 
+        icon: 'FaCode', priceRange: '', deliveryTime: '', category: 'Development', image: '' 
       });
     }
     setIsModalOpen(true);
@@ -157,11 +157,33 @@ const AdminServices = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
-                  <input type="text" placeholder="e.g. ₹5,000 - ₹20,000" className="input-field" value={formData.priceRange} onChange={e => setFormData({...formData, priceRange: e.target.value})} />
+                  <input type="text" placeholder="e.g. â‚¹5,000 - â‚¹20,000" className="input-field" value={formData.priceRange} onChange={e => setFormData({...formData, priceRange: e.target.value})} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Delivery Time</label>
                   <input type="text" placeholder="e.g. 2-4 Weeks" className="input-field" value={formData.deliveryTime} onChange={e => setFormData({...formData, deliveryTime: e.target.value})} />
+                </div>
+                <div className="col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Service Image</label>
+                  <div className="flex items-start gap-4">
+                    {formData.image && (
+                      <img src={formData.image} alt="Preview" className="w-20 h-20 rounded-lg object-cover border border-gray-200 flex-shrink-0" />
+                    )}
+                    <input 
+                      type="file" 
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files[0];
+                        if (file) {
+                          if (file.size > 2 * 1024 * 1024) return toast.error("Image too large (Max 2MB)");
+                          const reader = new FileReader();
+                          reader.onloadend = () => setFormData({...formData, image: reader.result});
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                      className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange-700 hover:file:bg-orange-100" 
+                    />
+                  </div>
                 </div>
                 <div className="col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Short Description</label>
@@ -185,3 +207,4 @@ const AdminServices = () => {
 };
 
 export default AdminServices;
+

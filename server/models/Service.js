@@ -11,7 +11,8 @@ const serviceSchema = new mongoose.Schema({
   priceRange: { type: String },
   deliveryTime: { type: String },
   category: { type: String, required: true },
-  order: { type: Number, default: 0 }
+  order: { type: Number, default: 0 },
+  image: { type: String }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Service', serviceSchema);
