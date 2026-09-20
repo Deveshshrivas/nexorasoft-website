@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Outlet, NavLink, useNavigate, Link } from 'react-router-dom';
 import { FiHome, FiBox, FiServer, FiShoppingCart, FiMail, FiLogOut, FiLock, FiSettings, FiCheckCircle } from 'react-icons/fi';
 import { useSiteSettings } from '../../context/SiteContext';
@@ -105,7 +105,7 @@ const AdminLayout = () => {
               <div className="flex justify-center my-4">
                 {/* Cloudflare Turnstile Test Site Key */}
                 <Turnstile 
-                  siteKey="1x00000000000000000000AA"
+                  siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA"}
                   onSuccess={(token) => setTurnstileToken(token)}
                   options={{ theme: 'light' }}
                 />
@@ -137,7 +137,7 @@ const AdminLayout = () => {
           )}
           
           <div className="mt-6">
-            <Link to="/" className="text-sm text-gray-400 hover:text-orange-500">← Back to Main Site</Link>
+            <Link to="/" className="text-sm text-gray-400 hover:text-orange-500">â† Back to Main Site</Link>
           </div>
         </div>
       </div>
@@ -205,3 +205,4 @@ const AdminLayout = () => {
 };
 
 export default AdminLayout;
+
