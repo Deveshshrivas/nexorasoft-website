@@ -1,4 +1,4 @@
-﻿const express = require('express');
+const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
@@ -24,6 +24,9 @@ app.use('/api/projects', require('./routes/projects'));
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/settings', require('./routes/settings'));
 app.use('/api/adminAuth', require('./routes/adminAuth'));
+
+// SEO Sitemap Route
+app.use('/', require('./routes/sitemap'));
 
 // Serve frontend in production
 if (process.env.NODE_ENV === 'production') {
