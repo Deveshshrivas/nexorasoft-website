@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FiTarget, FiEye, FiHeart, FiUsers, FiAward, FiGlobe, FiCode } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
@@ -190,7 +190,7 @@ const About = () => (
             },
             {
               icon: FiEye, title: 'Our Vision', color: '#f56a00',
-              text: "To be India's most trusted IT partner and kids product brand â€” known for excellence, innovation, and a genuine commitment to making lives better.",
+              text: "To be India's most trusted IT partner and digital solutions provider — known for excellence, innovation, and a genuine commitment to driving client success.",
             },
           ].map((item, i) => (
             <motion.div

@@ -40,8 +40,8 @@ const testimonials = [
   },
   {
     name: 'Amit Patel',
-    role: 'Parent & Regular Customer',
-    text: 'Ordered science kits and building blocks for my kids. The quality is excellent and delivery was super fast. My kids absolutely love them!',
+    role: 'CTO, FinEdge Global',
+    text: 'Their cloud architecture and DevOps consulting saved us significant infrastructure costs while dramatically improving our system uptime and security.',
     rating: 5,
     avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Amit&backgroundColor=d1f4cc',
   },
@@ -478,7 +478,7 @@ const Home = () => {
             <h2 className="section-heading mb-3">Digital Solutions Built for Scale</h2>
             <div className="divider-orange" />
             <p className="section-sub mt-5">
-              Carefully curated toys, books, and educational kits â€” free shipping above â‚¹500!
+              Explore our portfolio of cutting-edge web applications, mobile platforms, and enterprise solutions.
             </p>
           </motion.div>
 
@@ -493,7 +493,7 @@ const Home = () => {
               <h3 className="text-xl font-bold text-gray-700 mb-2">Projects Coming Soon</h3>
               <p className="text-gray-500 text-sm mb-6">We are currently updating our portfolio.</p>
               <Link to="/contact" className="btn btn-primary">
-                Contact Us for Orders
+                Get in Touch
               </Link>
             </div>
           ) : (
