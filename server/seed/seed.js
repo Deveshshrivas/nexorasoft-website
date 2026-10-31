@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 require('dotenv').config({ path: '../.env' });
 const Service = require('../models/Service');
-const Product = require('../models/Product');
+const Project = require('../models/Project');
 
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/nexoraindia';
 
@@ -16,19 +16,43 @@ const services = [
   { title: 'IT Consulting', slug: 'it-consulting', shortDescription: 'Expert technology consulting to help your business grow smarter.', fullDescription: 'Not sure which technology stack to choose? Our experienced consultants provide strategic technology advice, architecture reviews, and digital transformation roadmaps.', icon: 'FaLightbulb', features: ['Tech Stack Advisory', 'Architecture Review', 'Digital Transformation', 'Project Management', 'Team Augmentation', 'Cost Optimization'], technologies: ['Various', 'Agile', 'Scrum', 'JIRA', 'Confluence', 'Slack'], priceRange: 'Starting from Rs.5,000/hour', deliveryTime: 'Flexible', category: 'Consulting', order: 8 }
 ];
 
-const products = [
-  { name: 'Wooden Building Blocks Set', description: 'Premium quality wooden building blocks set with 50 colorful pieces. Perfect for developing motor skills and creativity in kids aged 2-6 years.', price: 799, originalPrice: 1200, category: 'Toys', ageGroup: '2-6 years', images: ['https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=500'], stock: 50, rating: 4.5, numReviews: 28, featured: true, badge: 'Best Seller' },
-  { name: 'Kids Science Kit', description: 'Fun and educational science experiment kit with 30+ experiments. Encourages curiosity and STEM learning for kids aged 8-14 years.', price: 1299, originalPrice: 1799, category: 'Educational', ageGroup: '8-14 years', images: ['https://images.unsplash.com/photo-1532094349884-543559285d36?w=500'], stock: 30, rating: 4.8, numReviews: 45, featured: true, badge: 'Top Rated' },
-  { name: 'Remote Control Car', description: 'High-speed RC car with 2.4GHz remote control. Rechargeable battery, all-terrain wheels, up to 30km/h speed. For kids aged 6+ years.', price: 1999, originalPrice: 2999, category: 'Toys', ageGroup: '6+ years', images: ['https://images.unsplash.com/photo-1594787317304-f6962c1b1328?w=500'], stock: 25, rating: 4.6, numReviews: 62, featured: true, badge: 'Sale' },
-  { name: 'Children Story Books Set (10 Books)', description: 'Beautifully illustrated collection of 10 classic and modern children story books. Perfect for bedtime reading, ages 4-10 years.', price: 599, originalPrice: 900, category: 'Books', ageGroup: '4-10 years', images: ['https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500'], stock: 100, rating: 4.7, numReviews: 89, featured: true, badge: 'New' },
-  { name: 'Art & Craft Mega Kit', description: 'Complete art kit with 200+ pieces including crayons, watercolors, sketch pens, clay, and craft materials. For ages 4-12 years.', price: 899, originalPrice: 1400, category: 'Art & Craft', ageGroup: '4-12 years', images: ['https://images.unsplash.com/photo-1560762484-813fc97650a0?w=500'], stock: 40, rating: 4.4, numReviews: 34, featured: false, badge: 'Sale' },
-  { name: 'Kids Cricket Set', description: 'Junior cricket set including bat, ball, stumps, and protective pads. Perfect starter kit for budding cricketers aged 7-14 years.', price: 1199, originalPrice: 1699, category: 'Sports', ageGroup: '7-14 years', images: ['https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=500'], stock: 35, rating: 4.3, numReviews: 21, featured: false },
-  { name: 'Kids Learning Laptop', description: 'Educational toy laptop with 80+ learning activities including alphabet, numbers, music, and problem-solving games. Ages 3-8 years.', price: 1499, originalPrice: 2200, category: 'Electronics', ageGroup: '3-8 years', images: ['https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500'], stock: 20, rating: 4.5, numReviews: 18, featured: true, badge: 'New' },
-  { name: 'Kids Summer Wear Pack (3 Sets)', description: 'Comfortable and vibrant summer clothing set for kids. Made from 100% cotton, machine washable. Available in sizes 2-10 years.', price: 699, originalPrice: 1100, category: 'Clothing', ageGroup: '2-10 years', images: ['https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500'], stock: 60, rating: 4.2, numReviews: 41, featured: false },
-  { name: 'Magnetic Drawing Board', description: 'Erasable colorful magnetic drawing board with stamp set. Kids can draw and erase endlessly. Great for travel. Ages 3+ years.', price: 449, originalPrice: 699, category: 'Art & Craft', ageGroup: '3+ years', images: ['https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500'], stock: 75, rating: 4.6, numReviews: 56, featured: false, badge: 'Best Seller' },
-  { name: 'Building Bricks 500pc', description: 'Compatible building bricks set with 500 pieces in multiple colors. Build anything you imagine! Safe, non-toxic. Ages 5+ years.', price: 999, originalPrice: 1599, category: 'Toys', ageGroup: '5+ years', images: ['https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=500'], stock: 45, rating: 4.8, numReviews: 73, featured: true, badge: 'Top Rated' },
-  { name: 'Kids Yoga Mat Set', description: 'Fun animal-printed yoga mat with illustrated exercise guide for kids. Promotes fitness and mindfulness. Ages 4-12 years.', price: 549, originalPrice: 799, category: 'Sports', ageGroup: '4-12 years', images: ['https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500'], stock: 30, rating: 4.3, numReviews: 15, featured: false },
-  { name: 'Kids Encyclopedia Bundle (5 Books)', description: 'Comprehensive encyclopedia set covering Science, History, Animals, Space, and Technology. For curious minds aged 8-15 years.', price: 1099, originalPrice: 1599, category: 'Books', ageGroup: '8-15 years', images: ['https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500'], stock: 55, rating: 4.9, numReviews: 38, featured: false, badge: 'New' }
+const projects = [
+  {
+    title: 'Cloud Analytics Platform',
+    description: 'High-performance real-time telemetry and dashboard system built for enterprise cloud applications.',
+    category: 'Development',
+    technologies: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80',
+    link: 'https://nexorasoft.io',
+    featured: true
+  },
+  {
+    title: 'FinTech Mobile Application',
+    description: 'Secure, compliant cross-platform payment and wealth management application with biometric authentication.',
+    category: 'Mobile',
+    technologies: ['Flutter', 'Node.js', 'AWS', 'Firebase'],
+    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=80',
+    link: 'https://nexorasoft.io',
+    featured: true
+  },
+  {
+    title: 'Automated CI/CD Kubernetes Pipeline',
+    description: 'Zero-downtime deployment infrastructure supporting microservices architecture on AWS EKS.',
+    category: 'Infrastructure',
+    technologies: ['AWS', 'Kubernetes', 'Docker', 'Terraform'],
+    image: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&auto=format&fit=crop&q=80',
+    link: 'https://nexorasoft.io',
+    featured: true
+  },
+  {
+    title: 'Healthcare SaaS Portal',
+    description: 'HIPAA-ready clinical workflow and teleconsultation platform connecting doctors and patients.',
+    category: 'Development',
+    technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80',
+    link: 'https://nexorasoft.io',
+    featured: true
+  }
 ];
 
 async function seed() {
@@ -36,12 +60,12 @@ async function seed() {
     await mongoose.connect(MONGO_URI);
     console.log('Connected to MongoDB...');
     await Service.deleteMany({});
-    await Product.deleteMany({});
+    await Project.deleteMany({});
     console.log('Cleared existing data...');
     await Service.insertMany(services);
     console.log('Seeded ' + services.length + ' services');
-    await Product.insertMany(products);
-    console.log('Seeded ' + products.length + ' products');
+    await Project.insertMany(projects);
+    console.log('Seeded ' + projects.length + ' projects');
     console.log('Database seeded successfully!');
     process.exit(0);
   } catch (err) {

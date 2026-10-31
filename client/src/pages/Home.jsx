@@ -489,7 +489,7 @@ const Home = () => {
           ) : products.length === 0 ? (
             /* Fallback when backend not connected */
             <div className="text-center py-16 bg-white rounded-2xl border-2 border-dashed border-gray-200">
-              <div className="text-6xl mb-4">ðŸ§¸</div>
+              <div className="text-6xl mb-4">💻</div>
               <h3 className="text-xl font-bold text-gray-700 mb-2">Projects Coming Soon</h3>
               <p className="text-gray-500 text-sm mb-6">We are currently updating our portfolio.</p>
               <Link to="/contact" className="btn btn-primary">
