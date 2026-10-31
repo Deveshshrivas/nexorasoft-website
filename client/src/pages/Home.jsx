@@ -151,9 +151,9 @@ const techStack = [
 
 const whyUs = [
   { icon: FiZap,    title: 'Agile & Fast Delivery',   desc: 'Iterative sprints with weekly demos and transparent progress tracking.' },
-  { icon: FiCode,   title: 'Clean, Scalable Code',    desc: 'Industry best practices â€” fully tested, documented, and maintainable.' },
+  { icon: FiCode,   title: 'Clean, Scalable Code',    desc: 'Industry best practices — fully tested, documented, and maintainable.' },
   { icon: FiShield, title: 'Post-Launch Support',     desc: '3 months of free support + SLA-backed maintenance plans.' },
-  { icon: FiCheck,  title: 'Affordable Pricing',      desc: 'Enterprise quality at startup-friendly rates â€” no hidden charges.' },
+  { icon: FiCheck,  title: 'Affordable Pricing',      desc: 'Enterprise quality at startup-friendly rates — no hidden charges.' },
 ];
 
 /* â”€â”€â”€ Animated Counter â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -276,7 +276,7 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-gray-300 text-lg leading-relaxed mb-10 max-w-lg"
               >
-                From cutting-edge web & mobile development, APIs, and DevOps ï¿½ to digital solutions that drive business growth.
+                From cutting-edge web & mobile development, APIs, and cloud infrastructure to scalable digital solutions that drive business growth.
               </motion.p>
 
               <motion.div
@@ -342,7 +342,7 @@ const Home = () => {
                   className="absolute -top-3 left-1/2 -translate-x-1/2 text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-lg"
                   style={{ backgroundColor: '#f56a00' }}
                 >
-                  ðŸš€ Est. 2016
+                  🚀 Est. 2016
                 </div>
               </motion.div>
 
@@ -432,7 +432,7 @@ const Home = () => {
             <h2 className="section-heading mb-3">Comprehensive IT Solutions</h2>
             <div className="divider-orange" />
             <p className="section-sub mt-5">
-              From concept to deployment â€” end-to-end technology solutions that drive real business growth.
+              From concept to deployment — end-to-end technology solutions that drive real business growth.
             </p>
           </motion.div>
 
@@ -542,7 +542,7 @@ const Home = () => {
                   className="flex items-center gap-3 p-4 rounded-xl"
                   style={{ backgroundColor: 'rgba(245,106,0,0.15)', border: '1px solid rgba(245,106,0,0.3)' }}
                 >
-                  <span className="text-2xl">ðŸ†</span>
+                  <span className="text-2xl">🏆</span>
                   <p className="text-sm text-orange-200 font-medium">
                     Certified partners with AWS, Google Cloud & Microsoft Azure
                   </p>
@@ -708,7 +708,7 @@ const Home = () => {
               <span style={{ color: '#f56a00' }}>Amazing Together</span>
             </h2>
             <p className="text-gray-300 text-lg mb-10 max-w-xl mx-auto">
-              Get a free consultation and detailed project estimate from our experts â€” no obligations.
+              Get a free consultation and detailed project estimate from our experts — no obligations.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/contact" className="btn btn-primary btn-lg">

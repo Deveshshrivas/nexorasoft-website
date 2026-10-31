@@ -11,6 +11,7 @@ import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
+import CustomCursor from './components/CustomCursor';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 
@@ -73,7 +74,8 @@ function App() {
     <SiteProvider>
       <Router>
         <ScrollToTop />
-                <Toaster
+        <CustomCursor />
+        <Toaster
           position="top-right"
           toastOptions={{
             duration: 3000,

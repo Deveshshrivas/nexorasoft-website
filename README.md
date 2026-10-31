@@ -1,6 +1,6 @@
 # Nexora India — MERN Website
 
-A full-featured MERN (MongoDB, Express, React, Node.js) website for **Nexora India** — an IT services company and kids products store.
+A full-featured MERN (MongoDB, Express, React, Node.js) website for **Nexora India** — a premier IT services, custom software, and digital solutions company.
 
 ## 🚀 Quick Start
 
