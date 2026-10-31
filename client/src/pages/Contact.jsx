@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { useSiteSettings } from '../context/SiteContext';
 import { motion } from 'framer-motion';
 import { FiSend, FiCheckCircle, FiPhone, FiMail, FiMapPin, FiClock } from 'react-icons/fi';
@@ -19,7 +19,7 @@ const Contact = () => {
 
   const INFO_CARDS = [
     { icon: FiMapPin, title: 'Visit Us',       lines: [(settings.contactAddress || 'Mumbai, India')] },
-    { icon: FiPhone,  title: 'Call Us',        lines: [(settings.contactPhone || '+91 98765 43210')] },
+    { icon: FiPhone,  title: 'Call Us',        lines: [(settings.contactPhone || '+91-9111962091')] },
     { icon: FiMail,   title: 'Email Us',       lines: [(settings.contactEmail || 'hello@nexoraindia.com')] },
     { icon: FiClock,  title: 'Business Hours', lines: ['Mon-Sat: 9 AM - 7 PM', 'Sun: 10 AM - 4 PM'] },
   ];
@@ -200,7 +200,7 @@ const Contact = () => {
             <div className="space-y-5">
               {/* WhatsApp */}
               <motion.a
-                href={`https://wa.me/${settings.whatsappNumber || "919876543210"}`}
+                href={`https://wa.me/${settings.whatsappNumber?.replace(/[^0-9]/g, '') || "919111962091"}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, x: 20 }}

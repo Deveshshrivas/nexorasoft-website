@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
@@ -39,7 +39,7 @@ const Footer = () => {
     { icon: FaFacebook,  href: "#",                               color: "#1877f2", label: "Facebook" },
     { icon: FaInstagram, href: "#",                               color: "#e1306c", label: "Instagram" },
     { icon: FaLinkedin,  href: "#",                               color: "#0a66c2", label: "LinkedIn" },
-    { icon: FaWhatsapp,  href: 'https://wa.me/' + (settings.whatsappNumber || "919876543210"), color: "#25d366", label: "WhatsApp" },
+    { icon: FaWhatsapp,  href: 'https://wa.me/' + (settings.whatsappNumber?.replace(/[^0-9]/g, '') || "919111962091"), color: "#25d366", label: "WhatsApp" },
     { icon: FaYoutube,   href: "#",                               color: "#ff0000", label: "YouTube" },
   ];
 
@@ -87,7 +87,7 @@ const Footer = () => {
             <ul className="space-y-4 mb-6">
               {[
                 { icon: FiMapPin, lines: [settings.contactAddress || "Mumbai, India"] },
-                { icon: FiPhone,  lines: [settings.contactPhone || "+91 98765 43210"] },
+                { icon: FiPhone,  lines: [settings.contactPhone || "+91-9111962091"] },
                 { icon: FiMail,   lines: [settings.contactEmail || "hello@nexoraindia.com"] },
               ].map(({ icon: Icon, lines }, i) => (
                 <li key={i} className="flex items-start gap-3">

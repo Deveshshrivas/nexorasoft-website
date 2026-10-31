@@ -11,9 +11,9 @@ export const SiteProvider = ({ children }) => {
     privacyPolicy: '',
     termsOfService: '',
     contactEmail: 'hello@nexoraindia.com',
-    contactPhone: '+91 98765 43210',
-    contactAddress: '123 Business Hub, Mumbai, Maharashtra 400001, India',
-    whatsappNumber: '919876543210'
+    contactPhone: '+91-9111962091',
+    contactAddress: 'Gwalior, Madhya Pradesh, India',
+    whatsappNumber: '919111962091'
   });
   const [loading, setLoading] = useState(true);
 

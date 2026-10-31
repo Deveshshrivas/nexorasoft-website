@@ -6,9 +6,9 @@ const settingsSchema = new mongoose.Schema({
   termsOfService: { type: String, default: 'Your Terms of Service go here...' },
   adminEmails: [{ type: String }],
   contactEmail: { type: String, default: 'hello@nexoraindia.com' },
-  contactPhone: { type: String, default: '+91 98765 43210' },
-  contactAddress: { type: String, default: '123 Business Hub, Mumbai, Maharashtra 400001, India' },
-  whatsappNumber: { type: String, default: '919876543210' }
+  contactPhone: { type: String, default: '+91-9111962091' },
+  contactAddress: { type: String, default: 'Gwalior, Madhya Pradesh, India' },
+  whatsappNumber: { type: String, default: '919111962091' }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Settings', settingsSchema);

@@ -715,7 +715,7 @@ const Home = () => {
                 Get Free Quote <FiArrowRight />
               </Link>
               <a
-                href={`https://wa.me/${settings?.whatsappNumber || "919876543210"}`}
+                href={`https://wa.me/${settings?.whatsappNumber || "919111962091"}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-outline-white btn-lg"
