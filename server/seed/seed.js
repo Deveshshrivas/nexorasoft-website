@@ -18,39 +18,51 @@ const services = [
 
 const projects = [
   {
-    title: 'Cloud Analytics Platform',
-    description: 'High-performance real-time telemetry and dashboard system built for enterprise cloud applications.',
-    category: 'Development',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80',
-    link: 'https://nexorasoft.io',
+    title: 'Vishwageeta',
+    description: 'A modern, high-performance Progressive Web Application (PWA) dedicated to sharing the timeless wisdom of the Shrimad Bhagavad Gita globally. Features multilingual chapters, shloka exploration, audio recitations, Sanskrit typography, and responsive offline access.',
+    image: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://vishwageeta.org/',
+    technologies: ['React', 'PWA', 'Tailwind CSS', 'Vite', 'Audio API'],
     featured: true
   },
   {
-    title: 'FinTech Mobile Application',
-    description: 'Secure, compliant cross-platform payment and wealth management application with biometric authentication.',
-    category: 'Mobile',
-    technologies: ['Flutter', 'Node.js', 'AWS', 'Firebase'],
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=80',
-    link: 'https://nexorasoft.io',
+    title: 'Bank Khojo',
+    description: 'Comprehensive financial comparison and discovery portal in India. Enables users to explore and compare interest rates across all major banks, calculate loan EMIs and fixed deposit returns, and review health insurance policies.',
+    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://bankkhojo.nexorasoft.io/',
+    technologies: ['PHP', 'CodeIgniter', 'Bootstrap 5', 'MySQL', 'Financial Calculators'],
     featured: true
   },
   {
-    title: 'Automated CI/CD Kubernetes Pipeline',
-    description: 'Zero-downtime deployment infrastructure supporting microservices architecture on AWS EKS.',
-    category: 'Infrastructure',
-    technologies: ['AWS', 'Kubernetes', 'Docker', 'Terraform'],
-    image: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&auto=format&fit=crop&q=80',
-    link: 'https://nexorasoft.io',
+    title: 'CalcXpert',
+    description: 'All-in-one suite of free, accurate online calculators for finance, health, mathematics, and date-time conversions. Designed with a clean responsive UI, instant mathematical computations, and internationalization.',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://calcxpert.nexorasoft.io/',
+    technologies: ['JavaScript', 'Bootstrap 5', 'HTML5', 'Algorithms', 'Responsive UI'],
     featured: true
   },
   {
-    title: 'Healthcare SaaS Portal',
-    description: 'HIPAA-ready clinical workflow and teleconsultation platform connecting doctors and patients.',
-    category: 'Development',
-    technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80',
-    link: 'https://nexorasoft.io',
+    title: 'NEWS24x7 INDIA',
+    description: 'High-traffic 24x7 digital journalism and news publishing portal delivering real-time regional and national headlines, breaking reports, multi-category journalism, and video broadcasting with blazing fast load times.',
+    image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://www.news24x7india.com/',
+    technologies: ['Next.js', 'React', 'Node.js', 'Tailwind CSS', 'Digital CMS'],
+    featured: true
+  },
+  {
+    title: 'Gwalior Management Association (GMA)',
+    description: 'Official institutional management portal for GMA (affiliated with All India Management Association - AIMA). Powers corporate event scheduling, student & executive memberships, and professional leadership development programs.',
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://gmagwalior.com/',
+    technologies: ['PHP', 'Laravel', 'Bootstrap 5', 'MySQL', 'Event Management'],
+    featured: true
+  },
+  {
+    title: 'Interview Room Coach',
+    description: 'Next-generation AI-powered mock interview and career preparation platform. Features interactive AI interview simulations, resume analysis, instant performance scoring, and tailored behavioral coaching.',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://interview-room-coach-2026-3ccbea966f18.herokuapp.com/',
+    technologies: ['React', 'Vite', 'Node.js', 'Tailwind CSS', 'AI Coaching API'],
     featured: true
   }
 ];

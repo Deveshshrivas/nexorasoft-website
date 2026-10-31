@@ -26,16 +26,43 @@ const defaultProjects = [
     link: 'https://calcxpert.nexorasoft.io/',
     technologies: ['JavaScript', 'Bootstrap 5', 'HTML5', 'Algorithms', 'Responsive UI'],
     featured: true
+  },
+  {
+    title: 'NEWS24x7 INDIA',
+    description: 'High-traffic 24x7 digital journalism and news publishing portal delivering real-time regional and national headlines, breaking reports, multi-category journalism, and video broadcasting with blazing fast load times.',
+    image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://www.news24x7india.com/',
+    technologies: ['Next.js', 'React', 'Node.js', 'Tailwind CSS', 'Digital CMS'],
+    featured: true
+  },
+  {
+    title: 'Gwalior Management Association (GMA)',
+    description: 'Official institutional management portal for GMA (affiliated with All India Management Association - AIMA). Powers corporate event scheduling, student & executive memberships, and professional leadership development programs.',
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://gmagwalior.com/',
+    technologies: ['PHP', 'Laravel', 'Bootstrap 5', 'MySQL', 'Event Management'],
+    featured: true
+  },
+  {
+    title: 'Interview Room Coach',
+    description: 'Next-generation AI-powered mock interview and career preparation platform. Features interactive AI interview simulations, resume analysis, instant performance scoring, and tailored behavioral coaching.',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://interview-room-coach-2026-3ccbea966f18.herokuapp.com/',
+    technologies: ['React', 'Vite', 'Node.js', 'Tailwind CSS', 'AI Coaching API'],
+    featured: true
   }
 ];
 
-// GET all projects (auto-seeds default projects if empty)
+// GET all projects (ensures default projects exist)
 router.get('/', async (req, res) => {
   try {
-    let projects = await Project.find().sort({ createdAt: -1 });
-    if (projects.length === 0) {
-      projects = await Project.insertMany(defaultProjects);
+    for (const dp of defaultProjects) {
+      const exists = await Project.findOne({ link: dp.link });
+      if (!exists) {
+        await Project.create(dp);
+      }
     }
+    const projects = await Project.find().sort({ createdAt: -1 });
     res.json(projects);
   } catch (err) {
     res.status(500).json({ message: err.message });
