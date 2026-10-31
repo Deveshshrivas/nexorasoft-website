@@ -17,10 +17,10 @@ const VALUES = [
 ];
 
 const TEAM = [
-  { name: 'Arjun Mehta',  role: 'CEO & Founder',     seed: 'Arjun',  bg: 'b6e3f4', bio: '10+ years building scalable software products and leading high-performance engineering teams.' },
-  { name: 'Sneha Patel',  role: 'CTO',               seed: 'Sneha',  bg: 'ffd5dc', bio: 'Full-stack architect specializing in cloud-native architectures and DevOps best practices.' },
-  { name: 'Rahul Singh',  role: 'Head of Design',    seed: 'Rahul',  bg: 'd1f4cc', bio: 'Award-winning UI/UX designer crafting delightful digital experiences since 2014.' },
-  { name: 'Meera Gupta',  role: 'Head of Projects',  seed: 'Meera',  bg: 'c0aede', bio: 'Ensures smooth delivery of high-quality digital solutions across India.' },
+  { name: 'Arvind Kumar',  role: 'CEO & Founder',     seed: 'Arvind',  bg: 'b6e3f4', bio: 'Strategic leader and tech visionary driving innovation, business operations, and enterprise software delivery.' },
+  { name: 'Gourav',        role: 'Technical Lead',    seed: 'Gourav',  bg: 'ffd5dc', bio: 'Full-stack engineering leader specializing in cloud architectures, microservices systems, and robust technical roadmaps.' },
+  { name: 'Devesh Shrivas',role: 'Software Engineer', seed: 'Devesh', bg: 'd1f4cc', bio: 'Full-stack developer focused on modern web platforms, high-performance UI engineering, and scalable backend APIs.' },
+  { name: 'Vinay Bhagat',  role: 'Software Engineer', seed: 'Vinay',   bg: 'c0aede', bio: 'Software engineer dedicated to clean architecture, reliable applications, and cutting-edge software solutions.' },
 ];
 
 const TIMELINE = [
@@ -115,7 +115,7 @@ const About = () => (
             <div className="divider-orange mb-6" style={{ margin: '0 0 1.5rem' }} />
             <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
               <p>
-                Nexora India started in 2023 when our founder Arjun Mehta saw a gap in the market - small and medium businesses in India needed enterprise-grade IT services at affordable prices.
+                Nexora India started in 2023 when our founder Arvind Kumar saw a gap in the market - small and medium businesses in India needed enterprise-grade IT services at affordable prices.
               </p>
               <p>
                 What began as a 3-person web studio in Mumbai has grown into a 50+ member team delivering full-stack IT solutions across web, mobile, APIs, DevOps, and cybersecurity.
