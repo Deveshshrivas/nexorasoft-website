@@ -177,7 +177,7 @@ const Contact = () => {
                       name="message"
                       value={form.message}
                       onChange={handle}
-                      placeholder="Tell us about your project or inquiryâ€¦"
+                      placeholder="Tell us about your project or inquiry..."
                       rows={5}
                       required
                       className="input-field"
@@ -190,7 +190,7 @@ const Contact = () => {
                     className="btn btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
                   >
                     <FiSend />
-                    {loading ? 'Sendingâ€¦' : 'Send Message'}
+                    {loading ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               )}
@@ -253,7 +253,7 @@ const Contact = () => {
                 transition={{ delay: 0.2 }}
                 className="rounded-2xl p-5 bg-gradient-navy text-white"
               >
-                <p className="font-bold mb-2">âš¡ Quick Response</p>
+                <p className="font-bold mb-2">⚡ Quick Response</p>
                 <p className="text-blue-200 text-sm">
                   All inquiries are answered within <strong className="text-white">24 hours</strong> on business days.
                 </p>

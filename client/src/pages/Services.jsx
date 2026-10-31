@@ -1,19 +1,27 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { FiSearch, FiX } from 'react-icons/fi';
 import { getServices } from '../api/api';
+import { defaultServices } from '../data/defaultServices';
 import ServiceCard from '../components/ServiceCard';
 
 const categories = ['All', 'Development', 'Infrastructure', 'Design', 'Marketing', 'Security', 'Consulting'];
 
 const Services = () => {
-  const [services, setServices]   = useState([]);
-  const [filtered, setFiltered]   = useState([]);
-  const [loading, setLoading]     = useState(true);
+  const [services, setServices]   = useState(defaultServices);
+  const [filtered, setFiltered]   = useState(defaultServices);
+  const [loading, setLoading]     = useState(false);
   const [activeCategory, setActiveCategory] = useState('All');
-  const [search, setSearch]       = useState('');useEffect(() => {
+  const [search, setSearch]       = useState('');
+
+  useEffect(() => {
     getServices()
-      .then(r => { setServices(r.data); setFiltered(r.data); })
+      .then(r => {
+        if (r.data && Array.isArray(r.data) && r.data.length > 0) {
+          setServices(r.data);
+          setFiltered(r.data);
+        }
+      })
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
@@ -64,7 +72,7 @@ const Services = () => {
             <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
             <input
               type="text"
-              placeholder="Search servicesÃ¢â‚¬Â¦"
+              placeholder="Search services..."
               value={search}
               onChange={e => setSearch(e.target.value)}
               className="w-full pl-11 pr-10 py-3.5 rounded-xl bg-white text-gray-800 text-sm focus:outline-none shadow-xl"
@@ -126,7 +134,7 @@ const Services = () => {
             </motion.div>
           ) : filtered.length === 0 ? (
             <div className="text-center py-20 bg-white rounded-2xl">
-              <div className="text-5xl mb-4">Ã°Å¸â€Â</div>
+              <div className="flex justify-center mb-4 text-orange-500"><FiSearch className="w-12 h-12 opacity-60" /></div>
               <p className="text-xl font-semibold text-gray-700 mb-2">No services found</p>
               <p className="text-gray-400 text-sm mb-6">Try a different keyword or category</p>
               <button

@@ -57,7 +57,7 @@ const About = () => (
           transition={{ delay: 0.2 }}
           className="text-gray-300 text-lg max-w-xl mx-auto"
         >
-          Founded in 2016 â€” from a small Mumbai studio to India's trusted IT & IT solutions partner.
+          Founded in 2016 — from a small Mumbai studio to India's trusted IT solutions partner.
         </motion.p>
       </div>
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
@@ -116,7 +116,7 @@ const About = () => (
             <div className="divider-orange mb-6" style={{ margin: '0 0 1.5rem' }} />
             <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
               <p>
-                Nexora India started in 2016 when our founder Arjun Mehta saw a gap in the market â€” small and medium businesses in India needed enterprise-grade IT services at affordable prices.
+                Nexora India started in 2016 when our founder Arjun Mehta saw a gap in the market — small and medium businesses in India needed enterprise-grade IT services at affordable prices.
               </p>
               <p>
                 What began as a 3-person web studio in Mumbai has grown into a 50+ member team delivering full-stack IT solutions across web, mobile, APIs, DevOps, and cybersecurity.

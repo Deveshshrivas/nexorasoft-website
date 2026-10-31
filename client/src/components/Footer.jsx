@@ -58,7 +58,7 @@ const Footer = () => {
                 <p className="text-[11px] text-gray-500 tracking-wider mt-0.5 uppercase">Tech Solutions</p>
               </div>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">Nexora India â€” your premier partner for cutting-edge IT services and digital transformation. Helping businesses grow and innovate since 2016.</p>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">Nexora India — your premier partner for cutting-edge IT services and digital transformation. Helping businesses grow and innovate since 2016.</p>
             <div className="flex gap-2.5">
               {socialLinks.map(({ icon: Icon, href, color, label }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110" style={{ backgroundColor: "rgba(255,255,255,0.07)" }} onMouseEnter={e => e.currentTarget.style.backgroundColor = color} onMouseLeave={e => e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.07)"}>

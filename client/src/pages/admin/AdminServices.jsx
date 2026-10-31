@@ -157,7 +157,7 @@ const AdminServices = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
-                  <input type="text" placeholder="e.g. â‚¹5,000 - â‚¹20,000" className="input-field" value={formData.priceRange} onChange={e => setFormData({...formData, priceRange: e.target.value})} />
+                  <input type="text" placeholder="e.g. ₹5,000 - ₹20,000" className="input-field" value={formData.priceRange} onChange={e => setFormData({...formData, priceRange: e.target.value})} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Delivery Time</label>

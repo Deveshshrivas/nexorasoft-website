@@ -11,6 +11,7 @@ import {
   FaShieldAlt, FaQuoteLeft, FaWhatsapp,
 } from 'react-icons/fa';
 import { getServices, getProjects } from '../api/api';
+import { defaultServices } from '../data/defaultServices';
 import ServiceCard from '../components/ServiceCard';
 import { FiExternalLink } from 'react-icons/fi';
 
@@ -180,7 +181,7 @@ const Counter = ({ target, suffix }) => {
 /* â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const Home = () => {
   const { settings } = useSiteSettings();
-  const [services, setServices]   = useState([]);
+  const [services, setServices]   = useState(defaultServices.slice(0, 6));
   const [products, setProducts]   = useState(defaultProjects);
   const [loading, setLoading]     = useState(true);
   const [tIdx, setTIdx]           = useState(0);
@@ -192,7 +193,7 @@ const Home = () => {
           getServices(),
           getProjects(),
         ]);
-        setServices(sRes.data.slice(0, 6));
+        setServices(sRes.data && sRes.data.length > 0 ? sRes.data.slice(0, 6) : defaultServices.slice(0, 6));
         setProducts(pRes.data && pRes.data.length > 0 ? pRes.data.filter(p => p.featured).slice(0, 6) : defaultProjects);
       } catch (e) { console.error(e); }
       finally { setLoading(false); }

@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { FiArrowLeft, FiCheck, FiClock, FiArrowRight } from 'react-icons/fi';
 import { FaCode, FaMobile, FaServer, FaCloud, FaPalette, FaChartLine, FaShieldAlt, FaLightbulb, FaRupeeSign } from 'react-icons/fa';
 import { getService } from '../api/api';
+import { defaultServices } from '../data/defaultServices';
+import { FiAlertCircle } from 'react-icons/fi';
 
 const iconMap = { FaCode, FaMobile, FaServer, FaCloud, FaPalette, FaChartLine, FaShieldAlt, FaLightbulb };
 
@@ -14,9 +16,11 @@ const ServiceDetail = () => {
   const [error, setError]     = useState(null);
 
   useEffect(() => {
+    const localFallback = defaultServices.find(s => s.slug === slug);
+    if (localFallback) setService(localFallback);
     getService(slug)
-      .then(r => setService(r.data))
-      .catch(() => setError('Service not found'))
+      .then(r => { if (r.data) setService(r.data); })
+      .catch(() => { if (!localFallback) setError('Service not found'); })
       .finally(() => setLoading(false));
   }, [slug]);
 
@@ -28,9 +32,9 @@ const ServiceDetail = () => {
 
   if (error || !service) return (
     <div className="page-wrapper min-h-screen flex flex-col items-center justify-center gap-4">
-      <p className="text-5xl">ðŸ˜•</p>
+      <div className="flex justify-center mb-2"><FiAlertCircle className="w-14 h-14 text-orange-500" /></div>
       <p className="text-2xl font-bold text-gray-700">Service Not Found</p>
-      <Link to="/services" className="btn btn-primary">â† Back to Services</Link>
+      <Link to="/services" className="btn btn-primary">← Back to Services</Link>
     </div>
   );
 

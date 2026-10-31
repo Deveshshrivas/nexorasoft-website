@@ -137,7 +137,7 @@ const AdminLayout = () => {
           )}
           
           <div className="mt-6">
-            <Link to="/" className="text-sm text-gray-400 hover:text-orange-500">â† Back to Main Site</Link>
+            <Link to="/" className="text-sm text-gray-400 hover:text-orange-500">← Back to Main Site</Link>
           </div>
         </div>
       </div>
