@@ -139,16 +139,6 @@ router.get('/', async (req, res) => {
     res.json(defaultServices);
   }
 });
-    const services = await Service.find().sort({ order: 1 });
-    if (!services || services.length === 0) {
-      return res.json(defaultServices);
-    }
-    res.json(services);
-  } catch (err) {
-    console.error('Error fetching services:', err);
-    res.json(defaultServices);
-  }
-});
 
 // GET single service by slug
 router.get('/:slug', async (req, res) => {
