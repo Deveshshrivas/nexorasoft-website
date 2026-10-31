@@ -17,10 +17,10 @@ const VALUES = [
 ];
 
 const TEAM = [
-  { name: 'Arvind Kumar',  role: 'CEO & Founder',     seed: 'Arvind',  bg: 'b6e3f4', bio: 'Strategic leader and tech visionary driving innovation, business operations, and enterprise software delivery.' },
-  { name: 'Gourav',        role: 'Technical Lead',    seed: 'Gourav',  bg: 'ffd5dc', bio: 'Full-stack engineering leader specializing in cloud architectures, microservices systems, and robust technical roadmaps.' },
-  { name: 'Devesh Shrivas',role: 'Software Engineer', seed: 'Devesh', bg: 'd1f4cc', bio: 'Full-stack developer focused on modern web platforms, high-performance UI engineering, and scalable backend APIs.' },
-  { name: 'Vinay Bhagat',  role: 'Software Engineer', seed: 'Vinay',   bg: 'c0aede', bio: 'Software engineer dedicated to clean architecture, reliable applications, and cutting-edge software solutions.' },
+  { name: 'Arvind Kumar',   role: 'CEO & Founder',     avatar: '/team/arvind-kumar.svg',    bio: 'Strategic leader and tech visionary driving innovation, business operations, and enterprise software delivery.' },
+  { name: 'Gourav',         role: 'Technical Lead',    avatar: '/team/gourav.svg',          bio: 'Full-stack engineering leader specializing in cloud architectures, microservices systems, and robust technical roadmaps.' },
+  { name: 'Devesh Shrivas', role: 'Software Engineer', avatar: '/team/devesh-shrivas.svg', bio: 'Full-stack developer focused on modern web platforms, high-performance UI engineering, and scalable backend APIs.' },
+  { name: 'Vinay Bhagat',   role: 'Software Engineer', avatar: '/team/vinay-bhagat.svg',   bio: 'Software engineer dedicated to clean architecture, reliable applications, and cutting-edge software solutions.' },
 ];
 
 const TIMELINE = [
@@ -280,11 +280,11 @@ const About = () => (
               transition={{ delay: i * 0.1 }}
               className="bg-white text-center p-6 rounded-2xl border border-gray-100 hover:border-orange-300 hover:shadow-lg transition-all duration-300 group"
             >
-              <div className="relative w-20 h-20 mx-auto mb-4">
+              <div className="relative w-24 h-24 mx-auto mb-4">
                 <img
-                  src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${m.seed}&backgroundColor=${m.bg}`}
+                  src={m.avatar}
                   alt={m.name}
-                  className="w-20 h-20 rounded-full bg-gray-100 border-2 border-gray-200 group-hover:border-orange-400 transition-colors"
+                  className="w-24 h-24 rounded-full bg-white border-2 border-gray-200 group-hover:border-orange-400 group-hover:scale-105 transition-all duration-300 shadow-sm"
                 />
               </div>
               <h4 className="font-bold text-gray-900 mb-0.5">{m.name}</h4>
