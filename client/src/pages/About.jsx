@@ -17,8 +17,8 @@ const VALUES = [
 ];
 
 const TEAM = [
-  { name: 'Arvind Kumar',   role: 'CEO & Founder',     avatar: '/team/arvind-kumar.svg',    bio: 'Strategic leader and tech visionary driving innovation, business operations, and enterprise software delivery.' },
-  { name: 'Gourav',         role: 'Technical Lead',    avatar: '/team/gourav.svg',          bio: 'Full-stack engineering leader specializing in cloud architectures, microservices systems, and robust technical roadmaps.' },
+  { name: 'Arvind Kumar',   role: 'CEO & Founder',     avatar: '/team/arvind-kumar.jpg',    bio: 'Strategic leader and tech visionary driving innovation, business operations, and enterprise software delivery.' },
+  { name: 'Gourav',         role: 'Technical Lead',    avatar: '/team/gourav.jpg',          bio: 'Full-stack engineering leader specializing in cloud architectures, microservices systems, and robust technical roadmaps.' },
   { name: 'Devesh Shrivas', role: 'Software Engineer', avatar: '/team/devesh-shrivas.svg', bio: 'Full-stack developer focused on modern web platforms, high-performance UI engineering, and scalable backend APIs.' },
   { name: 'Vinay Bhagat',   role: 'Software Engineer', avatar: '/team/vinay-bhagat.svg',   bio: 'Software engineer dedicated to clean architecture, reliable applications, and cutting-edge software solutions.' },
 ];
@@ -284,7 +284,7 @@ const About = () => (
                 <img
                   src={m.avatar}
                   alt={m.name}
-                  className="w-24 h-24 rounded-full bg-white border-2 border-gray-200 group-hover:border-orange-400 group-hover:scale-105 transition-all duration-300 shadow-sm"
+                  className="w-24 h-24 rounded-full bg-white border-2 border-gray-200 group-hover:border-orange-400 group-hover:scale-105 transition-all duration-300 shadow-sm object-cover"
                 />
               </div>
               <h4 className="font-bold text-gray-900 mb-0.5">{m.name}</h4>
