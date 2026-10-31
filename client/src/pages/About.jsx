@@ -19,8 +19,8 @@ const VALUES = [
 const TEAM = [
   { name: 'Arvind Kumar',   role: 'CEO & Founder',     avatar: '/team/arvind-kumar.jpg',    bio: 'Strategic leader and tech visionary driving innovation, business operations, and enterprise software delivery.' },
   { name: 'Gourav',         role: 'Technical Lead',    avatar: '/team/gourav.jpg',          bio: 'Full-stack engineering leader specializing in cloud architectures, microservices systems, and robust technical roadmaps.' },
-  { name: 'Devesh Shrivas', role: 'Software Engineer', avatar: '/team/devesh-shrivas.svg', bio: 'Full-stack developer focused on modern web platforms, high-performance UI engineering, and scalable backend APIs.' },
-  { name: 'Vinay Bhagat',   role: 'Software Engineer', avatar: '/team/vinay-bhagat.svg',   bio: 'Software engineer dedicated to clean architecture, reliable applications, and cutting-edge software solutions.' },
+  { name: 'Devesh Shrivas', role: 'Software Engineer', avatar: '/team/devesh-shrivas.png', bio: 'Full-stack developer focused on modern web platforms, high-performance UI engineering, and scalable backend APIs.' },
+  { name: 'Vinay Bhagat',   role: 'Software Engineer', avatar: '/team/vinay-bhagat.jpg',   bio: 'Software engineer dedicated to clean architecture, reliable applications, and cutting-edge software solutions.' },
 ];
 
 const TIMELINE = [
