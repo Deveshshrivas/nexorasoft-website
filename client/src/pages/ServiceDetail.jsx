@@ -193,7 +193,7 @@ const ServiceDetail = () => {
                 </Link>
 
                 <p className="text-center text-xs text-gray-400 mt-4">
-                  ðŸ”’ No hidden fees Â· Free initial consultation
+                  No hidden fees - Free initial consultation
                 </p>
               </motion.div>
             </div>

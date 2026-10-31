@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const STATS = [
   { icon: FiUsers,  value: '500+', label: 'Happy Clients',      color: '#f56a00' },
-  { icon: FiAward,  value: '8+',   label: 'Years Experience',   color: '#1a2d6b' },
+  { icon: FiAward,  value: '3+',   label: 'Years of Excellence',color: '#1a2d6b' },
   { icon: FiCode,   value: '150+', label: 'Projects Done',      color: '#f56a00' },
   { icon: FiGlobe,  value: '15+',  label: 'Industries Served',  color: '#1a2d6b' },
 ];
@@ -24,11 +24,10 @@ const TEAM = [
 ];
 
 const TIMELINE = [
-  { year: '2016', event: 'Founded in Mumbai as a 3-person web studio.' },
-  { year: '2018', event: 'Expanded to mobile app development & API services.' },
-  { year: '2020', event: 'Launched DevOps & Cloud infrastructure division.' },
-  { year: '2022', event: 'Expanded IT consulting and cloud infrastructure offerings.' },
-  { year: '2024', event: '500+ clients served across 15+ industries.' },
+  { year: '2023', event: 'Founded with a vision to deliver cutting-edge full-stack software and cloud solutions.' },
+  { year: '2024', event: 'Expanded core services into cross-platform mobile apps, microservices APIs & DevOps.' },
+  { year: '2025', event: 'Delivered 150+ successful digital solutions across finance, media, education & tech.' },
+  { year: '2026', event: 'Scaling modern enterprise platforms, AI-driven applications, and cloud ecosystems.' },
 ];
 
 const About = () => (
@@ -49,7 +48,7 @@ const About = () => (
           style={{ fontFamily: 'Poppins, sans-serif' }}
         >
           Building Digital Solutions<br />
-          <span style={{ color: '#f56a00' }}>& Brightening Young Minds</span>
+          <span style={{ color: '#f56a00' }}>& Accelerating Business Growth</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 18 }}
@@ -57,7 +56,7 @@ const About = () => (
           transition={{ delay: 0.2 }}
           className="text-gray-300 text-lg max-w-xl mx-auto"
         >
-          Founded in 2016 — from a small Mumbai studio to India's trusted IT solutions partner.
+          Founded in 2023 - from an ambitious development studio to India's trusted IT solutions partner.
         </motion.p>
       </div>
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
@@ -116,13 +115,13 @@ const About = () => (
             <div className="divider-orange mb-6" style={{ margin: '0 0 1.5rem' }} />
             <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
               <p>
-                Nexora India started in 2016 when our founder Arjun Mehta saw a gap in the market — small and medium businesses in India needed enterprise-grade IT services at affordable prices.
+                Nexora India started in 2023 when our founder Arjun Mehta saw a gap in the market - small and medium businesses in India needed enterprise-grade IT services at affordable prices.
               </p>
               <p>
                 What began as a 3-person web studio in Mumbai has grown into a 50+ member team delivering full-stack IT solutions across web, mobile, APIs, DevOps, and cybersecurity.
               </p>
               <p>
-                In 2022, we expanded our IT operations globally, delivering world-class enterprise software and mobile applications.
+                In 2024, we expanded our IT operations globally, delivering world-class enterprise software and mobile applications.
               </p>
             </div>
           </motion.div>
@@ -190,7 +189,7 @@ const About = () => (
             },
             {
               icon: FiEye, title: 'Our Vision', color: '#f56a00',
-              text: "To be India's most trusted IT partner and digital solutions provider — known for excellence, innovation, and a genuine commitment to driving client success.",
+              text: "To be India's most trusted IT partner and digital solutions provider  -  known for excellence, innovation, and a genuine commitment to driving client success.",
             },
           ].map((item, i) => (
             <motion.div

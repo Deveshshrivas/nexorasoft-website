@@ -125,7 +125,7 @@ const Contact = () => {
                   className="text-center py-14"
                 >
                   <FiCheckCircle className="text-7xl text-green-500 mx-auto mb-5" />
-                  <h4 className="text-2xl font-bold text-gray-800 mb-2">Message Sent! ðŸŽ‰</h4>
+                  <h4 className="text-2xl font-bold text-gray-800 mb-2">Message Sent!</h4>
                   <p className="text-gray-500">Our team will get back to you within 24 hours.</p>
                   <button
                     onClick={() => setSent(false)}

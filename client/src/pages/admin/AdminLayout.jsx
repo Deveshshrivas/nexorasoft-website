@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet, NavLink, useNavigate, Link } from 'react-router-dom';
 import { FiHome, FiBox, FiServer, FiShoppingCart, FiMail, FiLogOut, FiLock, FiSettings, FiCheckCircle } from 'react-icons/fi';
 import { useSiteSettings } from '../../context/SiteContext';
