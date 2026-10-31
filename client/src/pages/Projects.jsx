@@ -1,18 +1,53 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 
+const defaultProjects = [
+  {
+    _id: 'proj-1',
+    title: 'Vishwageeta',
+    description: 'A modern, high-performance Progressive Web Application (PWA) dedicated to sharing the timeless wisdom of the Shrimad Bhagavad Gita globally. Features multilingual chapters, shloka exploration, audio recitations, Sanskrit typography, and responsive offline access.',
+    image: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://vishwageeta.org/',
+    technologies: ['React', 'PWA', 'Tailwind CSS', 'Vite', 'Audio API'],
+    featured: true
+  },
+  {
+    _id: 'proj-2',
+    title: 'Bank Khojo',
+    description: 'Comprehensive financial comparison and discovery portal in India. Enables users to explore and compare interest rates across all major banks, calculate loan EMIs and fixed deposit returns, and review health insurance policies.',
+    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://bankkhojo.nexorasoft.io/',
+    technologies: ['PHP', 'CodeIgniter', 'Bootstrap 5', 'MySQL', 'Financial Calculators'],
+    featured: true
+  },
+  {
+    _id: 'proj-3',
+    title: 'CalcXpert',
+    description: 'All-in-one suite of free, accurate online calculators for finance, health, mathematics, and date-time conversions. Designed with a clean responsive UI, instant mathematical computations, and internationalization.',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://calcxpert.nexorasoft.io/',
+    technologies: ['JavaScript', 'Bootstrap 5', 'HTML5', 'Algorithms', 'Responsive UI'],
+    featured: true
+  }
+];
+
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(defaultProjects);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getProjects = async () => {
       try {
         const response = await axios.get('/api/projects');
-        setProjects(response.data);
+        if (response.data && response.data.length > 0) {
+          setProjects(response.data);
+        } else {
+          setProjects(defaultProjects);
+        }
       } catch (error) {
         console.error('Error fetching projects:', error);
+        setProjects(defaultProjects);
       } finally {
         setLoading(false);
       }
@@ -30,97 +65,95 @@ const Projects = () => {
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen pt-32 pb-16">
+    <div className="bg-gray-50 min-h-screen pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-[#1a2d6b] sm:text-5xl">
-            Our Portfolio
+          <span className="inline-block py-1 px-4 rounded-full text-xs font-semibold tracking-wider text-orange-600 bg-orange-100 uppercase mb-3">
+            Our Work &amp; Portfolio
+          </span>
+          <h2 className="text-4xl font-extrabold text-[#1a2d6b] sm:text-5xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            Featured Client &amp; Internal Projects
           </h2>
-          <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
-            Discover our latest projects and successful case studies that showcase our expertise and innovation.
+          <p className="mt-4 max-w-2xl text-lg text-gray-500 mx-auto">
+            Discover our latest software products, web platforms, and enterprise solutions showcasing our technical expertise and execution.
           </p>
         </motion.div>
 
-        {projects.length === 0 ? (
-          <div className="text-center text-gray-500 text-lg">
-            No projects to display at the moment. Check back soon!
-          </div>
-        ) : (
-          <motion.div variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.15 } } }} initial="hidden" animate="show" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {projects.map((project) => (
-              <motion.div variants={{ hidden: { opacity: 0, y: 30, scale: 0.95 }, show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 50 } } }} key={project._id} className="card bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 flex flex-col"
-              >
-                <div className="h-64 overflow-hidden relative">
-                  {project.image ? (
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-[#1a2d6b] flex items-center justify-center text-white opacity-90">
-                      <span className="text-2xl font-semibold opacity-50">No Image</span>
-                    </div>
-                  )}
-                  {project.featured && (
-                    <div className="absolute top-4 right-4 bg-[#f56a00] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                      Featured
-                    </div>
-                  )}
+        <motion.div variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.15 } } }} initial="hidden" animate="show" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <motion.div 
+              variants={{ hidden: { opacity: 0, y: 30, scale: 0.95 }, show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 50 } } }} 
+              key={project._id} 
+              className="card bg-white rounded-2xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 flex flex-col group"
+            >
+              <div className="h-60 overflow-hidden relative bg-gray-100">
+                {project.image ? (
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-[#1a2d6b] flex items-center justify-center text-white opacity-90">
+                    <span className="text-2xl font-semibold opacity-50">No Image</span>
+                  </div>
+                )}
+                {project.featured && (
+                  <div className="absolute top-4 right-4 bg-[#f56a00] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-sm">
+                    Featured
+                  </div>
+                )}
+              </div>
+              
+              <div className="p-7 flex-grow flex flex-col">
+                <h3 className="text-2xl font-bold text-[#1a2d6b] mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
+                  {project.description}
+                </p>
+                
+                <div className="mb-6">
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.technologies?.map((tech, index) => (
+                      <span 
+                        key={index} 
+                        className="bg-blue-50 text-[#1a2d6b] text-xs font-semibold px-2.5 py-1 rounded-md border border-blue-100/60"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 
-                <div className="p-6 flex-grow flex flex-col">
-                  <h3 className="text-2xl font-bold text-[#1a2d6b] mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6 flex-grow line-clamp-3">
-                    {project.description}
-                  </p>
-                  
-                  <div className="mb-6">
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies?.map((tech, index) => (
-                        <span 
-                          key={index} 
-                          className="bg-blue-50 text-[#1a2d6b] text-xs font-semibold px-3 py-1 rounded-full border border-blue-100"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {project.link && (
-                    <div className="mt-auto pt-4 border-t border-gray-100">
-                      <a 
-                        href={project.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-[#f56a00] font-semibold hover:text-[#d45a00] transition-colors group"
+                {project.link && (
+                  <div className="mt-auto pt-4 border-t border-gray-100">
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm font-bold text-[#f56a00] hover:text-[#d45a00] transition-colors group-hover:translate-x-1 duration-200"
+                    >
+                      Visit Live Website
+                      <svg 
+                        className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24" 
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        View Project
-                        <svg 
-                          className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24" 
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </a>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </div>
   );
 };
 
 export default Projects;
-
-

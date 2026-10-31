@@ -13,7 +13,71 @@ import {
 import { getServices, getProjects } from '../api/api';
 import ServiceCard from '../components/ServiceCard';
 import { FiExternalLink } from 'react-icons/fi';
-const ProjectCard = ({ p, index }) => ( <div className='card bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full'> <div className='relative h-56 overflow-hidden bg-gray-100'> {p.image ? ( <img src={p.image} alt={p.title} className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500' /> ) : ( <div className='w-full h-full flex items-center justify-center text-gray-400 font-medium'>No Image</div> )} </div> <div className='p-6 flex flex-col flex-1'> <h3 className='text-xl font-bold text-gray-900 mb-2'>{p.title}</h3> <p className='text-gray-600 text-sm mb-6 flex-1 line-clamp-2'>{p.description}</p> {p.link && ( <a href={p.link} target='_blank' rel='noopener noreferrer' className='inline-flex items-center text-sm font-bold text-orange-500 hover:text-orange-600 transition-colors mt-auto'> View Live <FiExternalLink className='ml-1.5' /> </a> )} </div> </div>);
+
+const defaultProjects = [
+  {
+    _id: 'proj-1',
+    title: 'Vishwageeta',
+    description: 'A modern, high-performance Progressive Web Application (PWA) dedicated to sharing the timeless wisdom of the Shrimad Bhagavad Gita globally. Features multilingual chapters, shloka exploration, audio recitations, Sanskrit typography, and responsive offline access.',
+    image: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://vishwageeta.org/',
+    technologies: ['React', 'PWA', 'Tailwind CSS', 'Vite', 'Audio API'],
+    featured: true
+  },
+  {
+    _id: 'proj-2',
+    title: 'Bank Khojo',
+    description: 'Comprehensive financial comparison and discovery portal in India. Enables users to explore and compare interest rates across all major banks, calculate loan EMIs and fixed deposit returns, and review health insurance policies.',
+    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://bankkhojo.nexorasoft.io/',
+    technologies: ['PHP', 'CodeIgniter', 'Bootstrap 5', 'MySQL', 'Financial Calculators'],
+    featured: true
+  },
+  {
+    _id: 'proj-3',
+    title: 'CalcXpert',
+    description: 'All-in-one suite of free, accurate online calculators for finance, health, mathematics, and date-time conversions. Designed with a clean responsive UI, instant mathematical computations, and internationalization.',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&auto=format&fit=crop&q=80',
+    link: 'https://calcxpert.nexorasoft.io/',
+    technologies: ['JavaScript', 'Bootstrap 5', 'HTML5', 'Algorithms', 'Responsive UI'],
+    featured: true
+  }
+];
+
+const ProjectCard = ({ p, index }) => (
+  <div className='card bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full'>
+    <div className='relative h-56 overflow-hidden bg-gray-100'>
+      {p.image ? (
+        <img src={p.image} alt={p.title} className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500' />
+      ) : (
+        <div className='w-full h-full flex items-center justify-center text-gray-400 font-medium'>No Image</div>
+      )}
+      {p.featured && (
+        <div className="absolute top-3.5 right-3.5 bg-[#f56a00] text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
+          Featured
+        </div>
+      )}
+    </div>
+    <div className='p-6 flex flex-col flex-1'>
+      <h3 className='text-xl font-bold text-gray-900 mb-2' style={{ fontFamily: 'Poppins, sans-serif' }}>{p.title}</h3>
+      <p className='text-gray-600 text-sm mb-4 flex-1 line-clamp-3 leading-relaxed'>{p.description}</p>
+      {p.technologies && p.technologies.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 mb-5">
+          {p.technologies.slice(0, 4).map((tech, i) => (
+            <span key={i} className="bg-blue-50 text-[#1a2d6b] text-[11px] font-semibold px-2 py-0.5 rounded-md border border-blue-100/60">
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
+      {p.link && (
+        <a href={p.link} target='_blank' rel='noopener noreferrer' className='inline-flex items-center text-sm font-bold text-orange-500 hover:text-orange-600 transition-colors mt-auto'>
+          View Live Project <FiExternalLink className='ml-1.5' />
+        </a>
+      )}
+    </div>
+  </div>
+);
 
 /* â”€â”€â”€ Static data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const stats = [
@@ -90,7 +154,7 @@ const Counter = ({ target, suffix }) => {
 const Home = () => {
   const { settings } = useSiteSettings();
   const [services, setServices]   = useState([]);
-  const [products, setProducts]   = useState([]);
+  const [products, setProducts]   = useState(defaultProjects);
   const [loading, setLoading]     = useState(true);
   const [tIdx, setTIdx]           = useState(0);
 
@@ -102,7 +166,7 @@ const Home = () => {
           getProjects(),
         ]);
         setServices(sRes.data.slice(0, 6));
-        setProducts((pRes.data || []).filter(p => p.featured).slice(0, 4));
+        setProducts(pRes.data && pRes.data.length > 0 ? pRes.data.filter(p => p.featured).slice(0, 6) : defaultProjects);
       } catch (e) { console.error(e); }
       finally { setLoading(false); }
     })();
@@ -497,8 +561,8 @@ const Home = () => {
               </Link>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {products.map((p, i) => <ProjectCard key={p._id} p={p} index={i} />)}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {products.map((p, i) => <ProjectCard key={p._id || i} p={p} index={i} />)}
             </div>
           )}
 
