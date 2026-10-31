@@ -167,7 +167,7 @@ const AdminServices = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Service Image</label>
                   <div className="flex items-start gap-4">
                     {formData.image && (
-                      <img src={formData.image} alt="Preview" className="w-20 h-20 rounded-lg object-cover border border-gray-200 flex-shrink-0" />
+                      <img src={formData.image} alt="Preview" onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.svg'; }} className="w-20 h-20 rounded-lg object-cover border border-gray-200 flex-shrink-0" />
                     )}
                     <input 
                       type="file" 

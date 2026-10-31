@@ -65,7 +65,7 @@ const AdminSettings = () => {
           <div className="flex items-start gap-6">
             <div className="w-24 h-24 rounded-full border-4 border-gray-100 overflow-hidden bg-gray-50 flex items-center justify-center flex-shrink-0">
               {formData.logo ? (
-                <img src={formData.logo} alt="Site Logo" className="w-full h-full object-cover" />
+                <img src={formData.logo} alt="Site Logo" onError={(e) => { e.target.onerror = null; e.target.src = '/logo.jpg'; }} className="w-full h-full object-cover" />
               ) : (
                 <span className="text-gray-400 text-sm">No Logo</span>
               )}

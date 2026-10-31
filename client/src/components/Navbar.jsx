@@ -35,7 +35,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-14">
           <Link to="/" className="flex items-center gap-3 flex-shrink-0 group">
             <div className="relative">
-              <img src={settings.logo || "/logo.jpg"} alt="Nexora India" className="h-11 w-11 rounded-full object-cover ring-2 ring-transparent group-hover:ring-orange-500 transition-all duration-300" />
+              <img src={settings.logo || "/logo.jpg"} alt="Nexora India" onError={(e) => { e.target.onerror = null; e.target.src = '/logo.jpg'; }} className="h-11 w-11 rounded-full object-cover ring-2 ring-transparent group-hover:ring-orange-500 transition-all duration-300" />
             </div>
             <div className="hidden sm:flex flex-col leading-none">
               <span className="text-lg font-black tracking-wide" style={{ color: "#1a2d6b", fontFamily: "Poppins, sans-serif" }}>NEXORA</span>

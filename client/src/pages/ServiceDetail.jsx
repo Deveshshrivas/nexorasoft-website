@@ -97,7 +97,7 @@ const ServiceDetail = () => {
             <div className="lg:col-span-2 space-y-10">
               {service.image && (
                 <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
-                  <img src={service.image} alt={service.title} className="w-full h-72 object-cover rounded-3xl shadow-lg border border-gray-100" />
+                  <img src={service.image} alt={service.title} onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.svg'; }} className="w-full h-72 object-cover rounded-3xl shadow-lg border border-gray-100" />
                 </motion.div>
               )}
 

@@ -34,7 +34,7 @@ const ServiceCard = ({ service, index = 0 }) => {
     >
       {service.image && (
         <div style={{ margin: '-1.75rem -1.75rem 1.5rem -1.75rem' }} className="h-48 overflow-hidden">
-          <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <img src={service.image} alt={service.title} onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.svg'; }} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
         </div>
       )}
 

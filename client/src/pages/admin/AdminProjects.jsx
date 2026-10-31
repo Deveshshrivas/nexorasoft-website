@@ -116,13 +116,38 @@ const AdminProjects = () => {
                 ></textarea>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">Image URL</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Project Image (Upload File or Enter URL)</label>
+                <div className="flex items-center gap-4 mb-2">
+                  {formData.image && (
+                    <img 
+                      src={formData.image} 
+                      alt="Preview" 
+                      onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.svg'; }}
+                      className="w-16 h-16 rounded-lg object-cover border border-gray-200 flex-shrink-0" 
+                    />
+                  )}
+                  <input 
+                    type="file" 
+                    accept="image/*"
+                    onChange={(e) => {
+                      const file = e.target.files[0];
+                      if (file) {
+                        if (file.size > 5 * 1024 * 1024) return alert("Image too large (Max 5MB)");
+                        const reader = new FileReader();
+                        reader.onloadend = () => setFormData({...formData, image: reader.result});
+                        reader.readAsDataURL(file);
+                      }
+                    }}
+                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange-700 hover:file:bg-orange-100" 
+                  />
+                </div>
                 <input
                   type="text"
                   name="image"
+                  placeholder="Or paste image URL (/projects/..., https://...)"
                   value={formData.image}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#f56a00] focus:ring-[#f56a00] p-2 border"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#f56a00] focus:ring-[#f56a00] p-2 border text-xs"
                 />
               </div>
               <div>
@@ -198,7 +223,7 @@ const AdminProjects = () => {
                       <div className="flex items-center">
                         <div className="h-10 w-10 flex-shrink-0">
                           {project.image ? (
-                            <img className="h-10 w-10 rounded-full object-cover" src={project.image} alt="" />
+                            <img className="h-10 w-10 rounded-full object-cover" src={project.image} alt="" onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.svg'; }} />
                           ) : (
                             <div className="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
                               No Img

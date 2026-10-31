@@ -150,7 +150,7 @@ const AdminLayout = () => {
       {/* Sidebar */}
       <aside className="w-full md:w-64 bg-[#080f22] text-white flex flex-col flex-shrink-0 h-screen overflow-y-auto">
         <div className="p-6 border-b border-white/10 flex items-center gap-3 bg-white/5 flex-shrink-0">
-          <img src={settings?.logo || '/logo.jpg'} alt="Logo" className="w-10 h-10 rounded-full border-2 border-orange-500/50 object-cover bg-white" />
+          <img src={settings?.logo || '/logo.jpg'} alt="Logo" onError={(e) => { e.target.onerror = null; e.target.src = '/logo.jpg'; }} className="w-10 h-10 rounded-full border-2 border-orange-500/50 object-cover bg-white" />
           <div>
             <h1 className="font-bold tracking-wider text-sm">NEXORA ADMIN</h1>
           </div>

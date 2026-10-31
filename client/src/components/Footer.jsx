@@ -52,7 +52,7 @@ const Footer = () => {
 
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-5 group">
-              <img src={settings.logo || "/logo.jpg"} alt="Nexora India" className="h-14 w-14 rounded-full object-cover border-2 border-orange-500/50 group-hover:border-orange-500 transition-colors bg-white" />
+              <img src={settings.logo || "/logo.jpg"} alt="Nexora India" onError={(e) => { e.target.onerror = null; e.target.src = '/logo.jpg'; }} className="h-14 w-14 rounded-full object-cover border-2 border-orange-500/50 group-hover:border-orange-500 transition-colors bg-white" />
               <div className="leading-none">
                 <div className="text-xl font-black tracking-wide" style={{ fontFamily: "Poppins, sans-serif" }}>NEXORA<span style={{ color: "#f56a00" }}> INDIA</span></div>
                 <p className="text-[11px] text-gray-500 tracking-wider mt-0.5 uppercase">Tech Solutions</p>

@@ -284,6 +284,7 @@ const About = () => (
                 <img
                   src={m.avatar}
                   alt={m.name}
+                  onError={(e) => { e.target.onerror = null; e.target.src = '/logo.jpg'; }}
                   className="w-24 h-24 rounded-full bg-white border-2 border-gray-200 group-hover:border-orange-400 group-hover:scale-105 transition-all duration-300 shadow-sm object-cover"
                 />
               </div>

@@ -20,7 +20,7 @@ const defaultProjects = [
     _id: 'proj-1',
     title: 'Vishwageeta',
     description: 'A modern, high-performance Progressive Web Application (PWA) dedicated to sharing the timeless wisdom of the Shrimad Bhagavad Gita globally. Features multilingual chapters, shloka exploration, audio recitations, Sanskrit typography, and responsive offline access.',
-    image: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=1200&auto=format&fit=crop&q=80',
+    image: '/projects/vishwageeta.jpg',
     link: 'https://vishwageeta.org/',
     technologies: ['React', 'PWA', 'Tailwind CSS', 'Vite', 'Audio API'],
     featured: true
@@ -29,7 +29,7 @@ const defaultProjects = [
     _id: 'proj-2',
     title: 'Bank Khojo',
     description: 'Comprehensive financial comparison and discovery portal in India. Enables users to explore and compare interest rates across all major banks, calculate loan EMIs and fixed deposit returns, and review health insurance policies.',
-    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200&auto=format&fit=crop&q=80',
+    image: '/projects/bank-khojo.jpg',
     link: 'https://bankkhojo.nexorasoft.io/',
     technologies: ['PHP', 'CodeIgniter', 'Bootstrap 5', 'MySQL', 'Financial Calculators'],
     featured: true
@@ -38,7 +38,7 @@ const defaultProjects = [
     _id: 'proj-3',
     title: 'CalcXpert',
     description: 'All-in-one suite of free, accurate online calculators for finance, health, mathematics, and date-time conversions. Designed with a clean responsive UI, instant mathematical computations, and internationalization.',
-    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&auto=format&fit=crop&q=80',
+    image: '/projects/calcxpert.jpg',
     link: 'https://calcxpert.nexorasoft.io/',
     technologies: ['JavaScript', 'Bootstrap 5', 'HTML5', 'Algorithms', 'Responsive UI'],
     featured: true
@@ -47,7 +47,7 @@ const defaultProjects = [
     _id: 'proj-4',
     title: 'NEWS24x7 INDIA',
     description: 'High-traffic 24x7 digital journalism and news publishing portal delivering real-time regional and national headlines, breaking reports, multi-category journalism, and video broadcasting with blazing fast load times.',
-    image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&auto=format&fit=crop&q=80',
+    image: '/projects/news24x7india.jpg',
     link: 'https://www.news24x7india.com/',
     technologies: ['Next.js', 'React', 'Node.js', 'Tailwind CSS', 'Digital CMS'],
     featured: true
@@ -56,7 +56,7 @@ const defaultProjects = [
     _id: 'proj-5',
     title: 'Gwalior Management Association (GMA)',
     description: 'Official institutional management portal for GMA (affiliated with All India Management Association - AIMA). Powers corporate event scheduling, student & executive memberships, and professional leadership development programs.',
-    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&auto=format&fit=crop&q=80',
+    image: '/projects/gma-gwalior.jpg',
     link: 'https://gmagwalior.com/',
     technologies: ['PHP', 'Laravel', 'Bootstrap 5', 'MySQL', 'Event Management'],
     featured: true
@@ -65,7 +65,7 @@ const defaultProjects = [
     _id: 'proj-6',
     title: 'Interview Room Coach',
     description: 'Next-generation AI-powered mock interview and career preparation platform. Features interactive AI interview simulations, resume analysis, instant performance scoring, and tailored behavioral coaching.',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&auto=format&fit=crop&q=80',
+    image: '/projects/interview-room-coach.jpg',
     link: 'https://interview-room-coach-2026-3ccbea966f18.herokuapp.com/',
     technologies: ['React', 'Vite', 'Node.js', 'Tailwind CSS', 'AI Coaching API'],
     featured: true
@@ -76,7 +76,7 @@ const ProjectCard = ({ p, index }) => (
   <div className='card bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full'>
     <div className='relative h-56 overflow-hidden bg-gray-100'>
       {p.image ? (
-        <img src={p.image} alt={p.title} className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500' />
+        <img src={p.image} alt={p.title} onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.svg'; }} className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500' />
       ) : (
         <div className='w-full h-full flex items-center justify-center text-gray-400 font-medium'>No Image</div>
       )}
@@ -121,21 +121,21 @@ const testimonials = [
     role: 'CEO, TechStartup Pvt Ltd',
     text: 'Nexora India transformed our digital presence. Their web development team built us a stunning e-commerce platform that tripled our sales within 3 months!',
     rating: 5,
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Rajesh&backgroundColor=b6e3f4',
+    avatar: '/testimonials/rajesh-kumar.svg',
   },
   {
     name: 'Priya Sharma',
     role: 'Founder, EduTech Solutions',
     text: 'The mobile app they built for us is phenomenal. Clean code, great UI, and delivered on time. The team is very professional and responsive.',
     rating: 5,
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Priya&backgroundColor=ffd5dc',
+    avatar: '/testimonials/priya-sharma.svg',
   },
   {
     name: 'Amit Patel',
     role: 'CTO, FinEdge Global',
     text: 'Their cloud architecture and DevOps consulting saved us significant infrastructure costs while dramatically improving our system uptime and security.',
     rating: 5,
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Amit&backgroundColor=d1f4cc',
+    avatar: '/testimonials/amit-verma.svg',
   },
 ];
 
@@ -335,6 +335,7 @@ const Home = () => {
                   <img
                     src="/logo.jpg"
                     alt="Nexora India"
+                    onError={(e) => { e.target.onerror = null; e.target.src = '/logo.jpg'; }}
                     className="w-48 h-48 rounded-full object-cover"
                   />
                 </div>
@@ -653,6 +654,7 @@ const Home = () => {
                     <img
                       src={t.avatar}
                       alt={t.name}
+                      onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.svg'; }}
                       className="w-14 h-14 rounded-full bg-gray-100 border-2 border-gray-200"
                     />
                     <div>
